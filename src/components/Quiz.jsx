@@ -5,14 +5,13 @@ export function Quiz(props){
 
     return (
         <section className="quiz-container">
+            <form>
             {props.questions.map(questionObj => {
                 return <Question 
-                    question={questionObj.question}
-                    correctAns={questionObj.correct_answer}
-                    incorrectAns={questionObj.incorrect_answers}
-                    selectedAns={props.selectedAns}
+                    questionObj={questionObj}
                 />
             })}
+            </form>
         </section>
     )
 }

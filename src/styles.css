@@ -77,6 +77,9 @@ section.start-container{
     transform: translateY(1px);
 }
 
+
+/* Question styles */
+
 section.quiz-container{
     display: flex;
     flex-direction: column;
@@ -102,7 +105,18 @@ section.question-container{
     margin-bottom: 10px;
 }
 
-.options-container button{
+/* Option styles */
+
+.options-container {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.options-container input[type="radio"] {
+  display: none;
+}
+
+.options-container label{
     font-family: "Inter", sans-serif;
     font-size: 0.75rem;
     color: #293264;
@@ -114,4 +128,8 @@ section.question-container{
     cursor: pointer;
 }
 
+input[type="radio"]:checked + label {
+  background-color: #D6DBF5;
+  border: #D6DBF5;
+}
 

@@ -61,6 +61,19 @@ export const defaultQuestions = [
     }
   ]
 
-export function jumbleOptions(question, correct){
-    
+export function reshapeQuizData(quizArr){
+    return quizArr.map((question, index) => {
+      //map incorrect options to a new array
+      const incorrect_options = question.incorrect_answers
+        .map(ans => ({answer : ans, correct : false}))
+
+      //join incorrect with correct option and shuffle
+      const options = [
+        {answer: question.correct_answer, correct: true},
+        ...incorrect_options
+      ].sort(() => Math.random() - 0.5)
+
+      //return reshaped data
+      return {id: `q${index}`, question: question.question, options: options}
+    })
 }

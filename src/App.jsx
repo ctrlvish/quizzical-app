@@ -1,17 +1,16 @@
 import { useState } from 'react'
 import { Start } from './components/Start'
 import { Quiz } from './components/Quiz'
-import { defaultQuestions } from './utils/quizHelpers'
+import { defaultQuestions, reshapeQuizData } from './utils/quizHelpers'
 
 
 export default function App() {
 
   //state
-  const [questions, setQuestions] = useState(defaultQuestions)
+  const [questions, setQuestions] = useState(() => reshapeQuizData(defaultQuestions))
   const [tdbToken, setTdbToken] = useState('')
   const [quizScreen, setQuizScreen] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  const [selectedAns, setSelectedAns] = useState('')
 
   //button functions
   function startQuiz(){
@@ -28,11 +27,7 @@ export default function App() {
   return (
     <main>
       {!quizScreen && <Start startQuiz={startQuiz}/>}
-      {quizScreen && <Quiz 
-        questions={questions}
-        selectedAns={selectedAns}
-      
-      />}
+      {quizScreen && <Quiz questions={questions}/>}
     </main>
   )
 }
