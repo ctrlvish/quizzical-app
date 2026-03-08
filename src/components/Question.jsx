@@ -4,6 +4,11 @@
 export function Question(props){
 
     const question = props.questionObj.question
+
+    function handleChange(questionId, value){
+        console.log(questionId)
+        console.log(value)
+    }
     
 
     return(
@@ -20,8 +25,9 @@ export function Question(props){
                             id={optionId} 
                             name={questionId} 
                             type="radio"
-                            value={opt.answer} />
-                        <label for={optionId}>{opt.answer}</label>
+                            value={opt.answer}
+                            onChange={(e) => handleChange(questionId, e.target.value)} />
+                        <label htmlFor={optionId}>{opt.answer}</label>
                         </div>
                     )
                 })}

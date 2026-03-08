@@ -133,3 +133,23 @@ input[type="radio"]:checked + label {
   border: #D6DBF5;
 }
 
+/* Scores section */
+.score-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.score-section p{
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.score-section button{
+    margin: 0;
+}
+
+
+
