@@ -54,7 +54,13 @@ section.start-container {
   height: 300px;
   width: 300px;
   border-radius: 30px;
+}
 
+section.start-container .error {
+  color: #c0392b;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  text-align: center;
 }
 
 .purple-btn {
@@ -112,7 +118,9 @@ section.start-container {
 
 .options-container {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 30px;
+  row-gap: 17px;
 }
 
 .options-container input[type="radio"] {

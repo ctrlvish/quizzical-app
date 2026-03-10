@@ -36,6 +36,7 @@ export function Quiz(props) {
         setSelectedAnswers({})
         setScore(0)
         setSubmitted(false)
+        props.onPlayAgain?.()
     }
 
 
