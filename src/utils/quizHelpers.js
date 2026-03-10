@@ -61,11 +61,17 @@ export const defaultQuestions = [
     }
   ]
 
+function decodeHTML(html) {
+  const txt = document.createElement("textarea")
+  txt.innerHTML = html
+  return txt.value
+}
+
 export function reshapeQuizData(quizArr){
     return quizArr.map((question, index) => {
       //map incorrect options to a new array
       const incorrect_options = question.incorrect_answers
-        .map(ans => ({answer : ans, correct : false}))
+        .map(ans => ({answer : decodeHTML(ans), correct : false}))
 
       //join incorrect with correct option and shuffle
       const options = [
@@ -74,6 +80,6 @@ export function reshapeQuizData(quizArr){
       ].sort(() => Math.random() - 0.5)
 
       //return reshaped data
-      return {id: `q${index}`, question: question.question, options: options}
+      return {id: `q${index}`, question: decodeHTML(question.question), options: options}
     })
 }
